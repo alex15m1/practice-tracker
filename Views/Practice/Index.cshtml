@@ -1,0 +1,50 @@
+@model List<PracticeTracker.Models.PracticeEntry>
+@{
+    ViewData["Title"] = "Practice Entries";
+}
+
+<h1>Practice Entries</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Entry</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Warm Up</th>
+            <th>Scales</th>
+            <th>Intonation</th>
+            <th>Technical Exercises</th>
+            <th>Minutes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Loop through the practice entries and display them in the table -->
+        @foreach (var entry in Model)
+        {
+            <tr>
+                <td>@entry.Date.ToShortDateString()</td>
+
+                <td>
+                    @if (entry.WarmUp) { <text>Yes</text> } else { <text>No</text> }
+                </td>
+
+                <td>
+                    @if (entry.Scales) { <text>Yes</text> } else { <text>No</text> }
+                </td>
+
+                <td>
+                    @if (entry.Intonation) { <text>Yes</text> } else { <text>No</text> }
+                </td>
+
+                <td>
+                    @if (entry.TechnicalExercises) { <text>Yes</text> } else { <text>No</text> }
+                </td>
+
+                <td>@entry.MinutesPracticed</td>
+            </tr>
+        }
+    </tbody>
+</table>

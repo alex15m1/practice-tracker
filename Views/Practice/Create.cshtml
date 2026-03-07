@@ -1,0 +1,44 @@
+@model PracticeTracker.Models.PracticeEntry
+<!-- This is the form the user fills out and goes to Create POST action in controller -->
+@{
+    ViewData["Title"] = "Add Practice Entry";
+}
+
+<h1>Add Practice Entry</h1>
+<p class="text-muted">Log one practice session for one day.</p>
+
+<!-- creates POST request -->
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="Date" class="form-label">Practice Date</label>
+        <input asp-for="Date" type="date" class="form-control" />
+    </div>
+
+    <div class="form-check mb-2">
+        <input asp-for="WarmUp" class="form-check-input" />
+        <label asp-for="WarmUp" class="form-check-label">Warm-up</label>
+    </div>
+
+    <div class="form-check mb-2">
+        <input asp-for="Scales" class="form-check-input" />
+        <label asp-for="Scales" class="form-check-label">Scales</label>
+    </div>
+
+    <div class="form-check mb-2">
+        <input asp-for="Intonation" class="form-check-input" />
+        <label asp-for="Intonation" class="form-check-label">Intonation</label>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="TechnicalExercises" class="form-check-input" />
+        <label asp-for="TechnicalExercises" class="form-check-label">Technical Exercises</label>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="MinutesPracticed" class="form-label">Minutes Practiced</label>
+        <input asp-for="MinutesPracticed" type="number" min="0" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Entry</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Back to List</a>
+</form>

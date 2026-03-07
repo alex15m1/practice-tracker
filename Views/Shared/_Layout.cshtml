@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Practice Tracker</title>
+
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Practice_Tracker.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <nav class="navbar navbar-light bg-white border-bottom mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Practice Tracker</a>
+            <div class="d-flex gap-3">
+                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
+                <a class="nav-link text-dark" asp-controller="Practice" asp-action="Index">Practice Tracker</a>
+                <a class="nav-link text-dark" asp-controller="Practice" asp-action="Calendar">Calendar</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container pb-3">
+        @RenderBody()
+    </main>
+
+    <footer class="border-top footer text-muted mt-4">
+        <div class="container">
+            &copy; @DateTime.Now.Year - Practice Tracker
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
